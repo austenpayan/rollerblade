@@ -31,6 +31,7 @@
 	 			_.touchIsMoving();
 			} else if(_.settings.drag === true ){
 				_.drag();
+				_.image.addClass('rollerblade-drag');
 			} else if (_.settings.drag === false) {
 				_.mouseIsMoving();
 			}

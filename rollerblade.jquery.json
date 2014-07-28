@@ -1,0 +1,29 @@
+{
+    "name": "rollerblade",
+    "title": "Rollerblade.js",
+    "description": "A jQuery plugin that creates 360˚ image rotators with javascript.",
+    "keywords": [
+        "responsive",
+        "rotator",
+        "360"
+
+    ],
+    "version": "1.0",
+    "author": {
+        "name": "Austen",
+        "url": "http://iamapioneer.com"
+    },
+    "maintainers": [{
+        "name": "Austen Payan",
+        "email": "austenpayan@gmail.com",
+        "url": "http://iamapioneer.com"
+    }],
+    "demo": "http://iamapioneer.com/plugins/rollerblade",
+    "bugs": "https://github.com/austenpayan/rollerblade/issues",
+    "homepage": "http://iamapioneer.com/plugins/rollerblade",
+    "docs": "http://iamapioneer.com/plugins/rollerblade",
+    "download": "https://http://iamapioneer.com/plugins/rollerblade/rollerblade",
+    "dependencies": {
+        "jquery": ">=1.7"
+    }
+}
