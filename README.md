@@ -6,7 +6,9 @@ rollerblade
 With Rollerblade, you can easily give your webpage visitors a great 360º viewing experience with your product, images, or anything else you can think of.
 
 ##The Setup.
-Rollerblade targets a container element with an image element inside that has the class of "rollerblade-img". Make the src of the image the path to the first image in your rotator.
+First, include rollerblade.css at the top of your page with your CSS. Or, since the contents of that file are so small, simply copy and paste the rollerblade.css contents into your main CSS file.
+
+Next: Rollerblade targets a container element with an image element inside that has the class of "rollerblade-img". Make the src of the image the path to the first image in your rotator.
 ```html
 
 <div id="target">
