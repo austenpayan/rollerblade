@@ -18,6 +18,8 @@
 			_.sensitivity = _.settings.sensitivity;
 			_.mobileRate = _.settings.sensitivity / 3;
 			_.images = _.settings.imageArray;
+			_.preloadImages = [];
+			_.timer = null;
 			_.init();
 		}
 
@@ -25,40 +27,68 @@
 
 			var _ = this;
 
-			// Test for smartphone browser. 
-			// Source : http://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-handheld-device-in-jquery
-			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	 			_.touchIsMoving();
-			} else if(_.settings.drag === true ){
-				_.drag();
-				_.image.addClass('rollerblade-drag');
-			} else if (_.settings.drag === false) {
-				_.mouseIsMoving();
-			}
+			if (_.settings.auto === true) {
 
+				_.auto(_.sensitivity);
+				
+			} else {
+				// Test for smartphone browser. 
+				// Source : http://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-handheld-device-in-jquery
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		 			_.touchIsMoving();
+				} else if(_.settings.drag === true ){
+					_.drag();
+					_.image.addClass('rollerblade-drag');
+				} else if (_.settings.drag === false) {
+					_.mouseIsMoving();
+				}
+			}
 			_.preload(_.images);
 
 		}
 
 		Rollerblade.prototype.preload = function(imageArray) {
 
-			if (!preloadImages.list) {
-		        preloadImages.list = [];
+			var _ = this;
+
+			if (!_.preloadImages.list) {
+		        _.preloadImages.list = [];
 		    }
-		    for (var i = 0; i < array.length; i++) {
+		    for (var i = 0; i < imageArray.length; i++) {
 		        var img = new Image();
 		        img.onload = function() {
-		            var index = preloadImages.list.indexOf(this);
+		            var index = _.preloadImages.list.indexOf(this);
 		            if (index !== -1) {
 		                // remove this one from the array once it's loaded
 		                // for memory consumption reasons
-		                preloadImages.splice(index, 1);
+		                _.preloadImages.splice(index, 1);
 		            }
 		        }
-		        preloadImages.list.push(img);
-		        img.src = array[i];
+		        _.preloadImages.list.push(img);
+		        img.src = imageArray[i];
 		    }
 
+		}
+
+		Rollerblade.prototype.auto = function(speed) {
+
+			var _ = this;
+			var i = 1;
+
+			_.timer = setInterval(function() {
+				if (i >= _.images.length) {
+					i = 0;
+				}
+				_.image.attr('src', _.images[i]);
+				i++;
+			}, speed);
+		}
+
+		Rollerblade.prototype.autoStop = function() {
+
+			var _ = this;
+
+			 clearInterval(_.timer);
 		}
 
 		Rollerblade.prototype.drag = function() {
@@ -252,7 +282,8 @@
 	$.fn.rollerblade.defaults = {
 		imageArray : [],
 		sensitivity: 35,
-		drag : true
+		drag : true,
+		auto : false
 	};
 
 }).call(this);
