@@ -15,6 +15,7 @@
 			_.lastMoveConstant = "none";
 			_.previousX = 0;
 			_.i = 0;
+			_.iAuto = 0;
 			_.sensitivity = _.settings.sensitivity;
 			_.mobileRate = _.settings.sensitivity / 3;
 			_.images = _.settings.imageArray;
@@ -70,17 +71,49 @@
 
 		}
 
+		Rollerblade.prototype.increment = function() {
+
+			var _ = this;
+
+			_.iAuto++;
+
+			if (_.iAuto >= _.images.length) {
+				_.iAuto = 0;
+			}
+
+			_.image.attr('src', _.images[_.iAuto]);
+			
+
+			console.log(_.iAuto);
+		}
+
+		Rollerblade.prototype.decrement = function() {
+
+			var _ = this;
+	
+			_.iAuto--;
+
+			if (_.iAuto < 0) {
+				_.iAuto = _.images.length -1;
+			}
+
+			_.image.attr('src', _.images[_.iAuto]);
+			
+		}
+
 		Rollerblade.prototype.auto = function(speed) {
 
 			var _ = this;
-			var i = 1;
 
 			_.timer = setInterval(function() {
-				if (i >= _.images.length) {
-					i = 0;
+
+				_.iAuto++;
+
+				if (_.iAuto >= _.images.length) {
+					_.iAuto = 0;
 				}
-				_.image.attr('src', _.images[i]);
-				i++;
+				_.image.attr('src', _.images[_.iAuto]);
+				
 			}, speed);
 		}
 
