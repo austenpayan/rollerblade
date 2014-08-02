@@ -83,8 +83,6 @@
 
 			_.image.attr('src', _.images[_.iAuto]);
 			
-
-			console.log(_.iAuto);
 		}
 
 		Rollerblade.prototype.decrement = function() {
