@@ -128,6 +128,8 @@
 			var _ = this;
 			var dragging = false;
 
+			document.ondragstart = function () { return false; };
+
 			_.image.mousedown(function(e) {
 				e.preventDefault;
 				if (!dragging) {
