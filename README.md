@@ -3,7 +3,7 @@ rollerblade
 
 ####A jQuery plugin for creating an interactive 360º image rotator.
 
-###[Demo](www.iamapioneer.com/plugins/rollerblade)
+###[Demo](http://www.iamapioneer.com/plugins/rollerblade)
 
 With Rollerblade, you can easily give your webpage visitors a great 360º viewing experience with your product, images, or anything else you can think of.
 
