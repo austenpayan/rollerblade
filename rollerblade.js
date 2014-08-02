@@ -21,6 +21,7 @@
 			_.images = _.settings.imageArray;
 			_.preloadImages = [];
 			_.timer = null;
+			_.touchOnThis = false;
 			_.init();
 		}
 
@@ -170,14 +171,29 @@
 
 			var _ = this;
 
+			_.container.on('touchstart', function() {
+
+				_.touchOnThis = true;
+
+			});
+
 			$(window).on('touchmove', function(ev) {
 
 				var e = ev.originalEvent;
 				var xcoord = e.pageX;
 				var deviceRate = _.mobileRate;
-				
-				_.changeLogic(xcoord, deviceRate);
 
+				if (_.touchOnThis) {
+					e.preventDefault();
+				
+					_.changeLogic(xcoord, deviceRate);
+				}
+				
+
+			});
+
+			$(window).on('touchend', function() {
+				_.touchOnThis = false;
 			});
 		}
 
