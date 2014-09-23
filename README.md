@@ -61,3 +61,4 @@ Rollerblade accepts the following options:
 | sensitivity   | int  | Any integer | The lower the number, the more sensitive the rotator will be. The number value represents distance in pixels between each frame change.| 35 |
 | drag          | bool | true/false | Determines if the rotator is draggable. If set to false, image will rotate on any mouse movement along the X axis of the page. | true |
 | auto          | bool | true/false  | Determines if rotator should spin by itself. Default is set to false. If set to true, rotator will spin and user interaction will be disabled. | false |
+| edgeStop          | bool | true/false  | Determines if the rotator should keep on rotating when the first or last image is reached. | false |
