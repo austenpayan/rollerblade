@@ -186,8 +186,7 @@
 				var deviceRate = _.mobileRate;
 
 				if (_.touchOnThis) {
-					e.preventDefault();
-				
+					
 					_.changeLogic(xcoord, deviceRate);
 				}
 				
