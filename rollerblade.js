@@ -265,13 +265,21 @@
 				} 
 
 				if(_.i > _.images.length) {
-					_.i = 0;
+					if (!_.settings.edgeStop) {
+						_.i = 0;
+					} else {
+						_.i = _.images.length;
+					}
 				}
 
 				_.image.attr('src', _.images[_.i]);
 
 				if (_.i >= _.images.length) {
-					_.i = 0;
+					if (!_.settings.edgeStop) {
+						_.i = 0;
+					} else {
+						_.i = _.images.length;
+					}
 				} else {
 					_.i++;
 				}
@@ -288,13 +296,21 @@
 				}
 
 				if(_.i < 0) {
-					_.i = _.images.length;
+					if (!_.settings.edgeStop) {
+						_.i = _.images.length;
+					} else {
+						_.i = 0;
+					}
 				}
 
 				_.image.attr('src', _.images[_.i]);
 
 				if (_.i <= 0) {
-					_.i = _.images.length;
+					if (!_.settings.edgeStop) {
+						_.i = _.images.length;
+					} else {
+						_.i = 0;
+					}
 				} else {
 					_.i--;
 				}
@@ -331,7 +347,8 @@
 		imageArray : [],
 		sensitivity: 35,
 		drag : true,
-		auto : false
+		auto : false,
+		edgeStop: false
 	};
 
 }).call(this);
