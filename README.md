@@ -1,13 +1,13 @@
 rollerblade
 ===========
 
-####A jQuery plugin for creating an interactive 360º image rotator.
+#### A jQuery plugin for creating an interactive 360º image rotator.
 
-###[Demo](http://www.iamapioneer.com/plugins/rollerblade)
+### [Demo](http://www.iamapioneer.com/plugins/rollerblade)
 
 With Rollerblade, you can easily give your webpage visitors a great 360º viewing experience with your product, images, or anything else you can think of.
 
-##The Setup.
+## The Setup.
 First, include rollerblade.css at the top of your page with your CSS. Or, since the contents of that file are so small, simply copy and paste the rollerblade.css contents into your main CSS file.
 
 Next: Rollerblade targets a container element with an image element inside that has the class of "rollerblade-img". Make the src of the image the path to the first image in your rotator.
@@ -19,7 +19,7 @@ Next: Rollerblade targets a container element with an image element inside that 
 
 ```
 
-##Initiate.
+## Initiate.
 Make sure jQuery is included in your page, and then select the container element and call the rollerblade method. At the very minimum, you have to pass in an array of image urls as a property of the options object. The property must be called 'imageArray'.
 
 ```javascript
@@ -53,7 +53,7 @@ Make sure jQuery is included in your page, and then select the container element
   
 ```
 
-##Options
+## Options
 Rollerblade accepts the following options:
 
 | Property Name | Type | Values | Description | Default |
